@@ -5,10 +5,11 @@ Main Application Entry Point
 
 from flask import Flask, jsonify
 from flask_cors import CORS
+import json
 
 from config import Config
-from models import db
-from auth import auth_bp
+from models import db, User, Internship
+from auth import auth_bp, hash_password
 from student_api import student_bp
 from college_api import college_bp
 from company_api import company_bp
@@ -66,22 +67,11 @@ def create_app():
     return app
 
 
-# Create app instance for gunicorn
-app = create_app()
-
-with app.app_context():
-    db.create_all()
-    
-    # Auto-seed if database is empty
-    from models import User, Internship
-    import json
-    
+def seed_data():
+    """Auto-seed database if empty"""
     if User.query.count() == 0:
         print("[INFO] Empty database detected, seeding...")
-        
-        # Import seed function
-        from auth import hash_password
-        
+
         demo_users = [
             {
                 'name': 'Aarav Sharma',
@@ -108,7 +98,7 @@ with app.app_context():
                 'company_name': 'TechCorp India'
             }
         ]
-        
+
         for u in demo_users:
             user = User(
                 name=u['name'],
@@ -122,13 +112,13 @@ with app.app_context():
                 cgpa=u.get('cgpa')
             )
             db.session.add(user)
-        
+
         db.session.commit()
         print("[OK] Users seeded")
-        
+
         # Seed internships
         company_user = User.query.filter_by(email='company@demo.com').first()
-        
+
         if company_user:
             demo_internships = [
                 {
@@ -177,7 +167,7 @@ with app.app_context():
                     'skills_required': ['Python', 'Machine Learning', 'Deep Learning', 'TensorFlow', 'PyTorch', 'Docker']
                 }
             ]
-            
+
             for data in demo_internships:
                 internship = Internship(
                     company_id=company_user.id,
@@ -192,12 +182,23 @@ with app.app_context():
                     status='active'
                 )
                 db.session.add(internship)
-            
+
             db.session.commit()
             print("[OK] Internships seeded")
+    else:
+        print(f"[INFO] Database has {User.query.count()} users, skipping seed")
+
+
+# Create app instance for gunicorn
+app = create_app()
+
+with app.app_context():
+    db.create_all()
+    seed_data()
 
 
 if __name__ == '__main__':
     print("[OK] Edu-Link AI backend starting...")
     print("[OK] URL: http://127.0.0.1:5000")
+    print("[OK] Health: http://127.0.0.1:5000/api/health")
     app.run(host='127.0.0.1', port=5000, debug=True)
