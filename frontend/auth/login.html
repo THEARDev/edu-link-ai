@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Edu-Link AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="../shared/css/components.css">
+
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+
+    <!-- LEFT: Branding -->
+    <div class="auth-brand">
+      <a href="../index.html" class="auth-brand-logo">
+        <div class="auth-brand-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>Edu-Link <strong>AI</strong></span>
+      </a>
+
+      <div class="auth-brand-content">
+        <h1>Welcome Back 👋</h1>
+        <p>Login to continue your journey from learning to employability.</p>
+
+        <div class="auth-brand-features">
+          <div class="auth-brand-feature">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Skill-first matching</span>
+          </div>
+          <div class="auth-brand-feature">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Explainable AI scores</span>
+          </div>
+          <div class="auth-brand-feature">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Dynamic Career Twin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-brand-footer">
+        <p>© 2025 Edu-Link AI · SIH26044</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Login Form -->
+    <div class="auth-form-wrapper">
+      <div class="auth-form-box">
+
+        <div class="auth-form-header">
+          <h2>Sign In</h2>
+          <p>Enter your credentials to access your account</p>
+        </div>
+
+        <div id="alertBox" class="alert hidden"></div>
+
+        <form id="loginForm" novalidate>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                class="form-control input-with-icon"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                class="form-control input-with-icon"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              >
+              <button type="button" class="input-toggle-password" id="togglePassword">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rememberMe">
+              <span>Remember me</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="loginBtn">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Sign In
+          </button>
+
+        </form>
+
+        <div class="auth-form-footer">
+          <p>Don't have an account? <a href="signup.html">Create one</a></p>
+        </div>
+
+        <div class="demo-hint">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>Demo: <strong>student@demo.com</strong> / <strong>demo123</strong></span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../shared/js/config.js"></script>
+  <script src="../shared/js/api.js"></script>
+  <script src="../shared/js/auth.js"></script>
+  <script src="../shared/js/guard.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

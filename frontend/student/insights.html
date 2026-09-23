@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Insights — Edu-Link AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/components.css">
+  <link rel="stylesheet" href="insights.css">
+</head>
+<body>
+
+  <div class="app-layout" id="app-layout">
+    <div class="main-content">
+      <div class="page-content">
+
+        <div class="page-header">
+          <h1>Career Insights</h1>
+          <p>Analyze your skills and track your readiness</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="gap">
+            <i class="fa-solid fa-chart-simple"></i>
+            <span>Skill Gap</span>
+          </button>
+          <button class="tab-btn" data-tab="careers">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>Careers</span>
+          </button>
+          <button class="tab-btn" data-tab="readiness">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Readiness</span>
+          </button>
+        </div>
+
+        <!-- TAB 1: SKILL GAP -->
+        <div class="tab-panel active" id="tab-gap">
+
+          <div class="card mb-lg">
+            <div class="role-selector-row">
+              <div>
+                <div class="card-title">Select Target Role</div>
+                <div class="card-subtitle">Choose a career to analyze your skill gap</div>
+              </div>
+              <select id="targetRoleSelect" class="form-control role-select">
+                <option value="fullstack">Full Stack Developer</option>
+                <option value="datascientist">Data Scientist</option>
+                <option value="frontend">Frontend Developer</option>
+                <option value="backend">Backend Developer</option>
+                <option value="ml">Machine Learning Engineer</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-3 mb-lg">
+            <div class="stat-card">
+              <div class="stat-card-icon green"><i class="fa-solid fa-circle-check"></i></div>
+              <div class="stat-card-value text-success" id="matchedCount">0</div>
+              <div class="stat-card-label">Matched Skills</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+              <div class="stat-card-value text-danger" id="missingCount">0</div>
+              <div class="stat-card-label">Missing Skills</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon amber"><i class="fa-solid fa-percent"></i></div>
+              <div class="stat-card-value text-warning" id="matchPercent">0%</div>
+              <div class="stat-card-label">Overall Match</div>
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">
+                  <i class="fa-solid fa-circle-check" style="color: var(--success); margin-right: 6px;"></i>
+                  Matched Skills
+                </div>
+              </div>
+              <div class="skills-breakdown" id="matchedSkillsList"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">
+                  <i class="fa-solid fa-circle-xmark" style="color: var(--danger); margin-right: 6px;"></i>
+                  Missing Skills
+                </div>
+              </div>
+              <div class="skills-breakdown" id="missingSkillsList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: CAREERS -->
+        <div class="tab-panel" id="tab-careers">
+          <div class="careers-grid" id="careersGrid"></div>
+        </div>
+
+        <!-- TAB 3: READINESS -->
+        <div class="tab-panel" id="tab-readiness">
+          <div class="card readiness-main-card">
+            <div class="readiness-main">
+              <div class="readiness-ring-big" id="readinessRingBig" style="--score: 0%">
+                <span id="readinessScoreBig">0%</span>
+              </div>
+              <div class="readiness-main-info">
+                <h2>Placement Readiness Score</h2>
+                <p>Calculated from your skills and profile completeness.</p>
+                <div class="readiness-breakdown">
+                  <div class="breakdown-item">
+                    <div class="breakdown-label">Skills</div>
+                    <div class="breakdown-value" id="breakdownSkills">0%</div>
+                  </div>
+                  <div class="breakdown-item">
+                    <div class="breakdown-label">Profile</div>
+                    <div class="breakdown-value" id="breakdownProfile">0%</div>
+                  </div>
+                  <div class="breakdown-item">
+                    <div class="breakdown-label">Experience</div>
+                    <div class="breakdown-value" id="breakdownExperience">0%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/js/config.js"></script>
+  <script src="../shared/js/api.js"></script>
+  <script src="../shared/js/auth.js"></script>
+  <script src="../shared/js/guard.js"></script>
+  <script src="../shared/js/layout.js"></script>
+  <script src="insights.js"></script>
+</body>
+</html>

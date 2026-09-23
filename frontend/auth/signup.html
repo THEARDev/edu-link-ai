@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — Edu-Link AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="../shared/css/components.css">
+
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+
+    <!-- LEFT: Branding -->
+    <div class="auth-brand">
+      <a href="../index.html" class="auth-brand-logo">
+        <div class="auth-brand-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>Edu-Link <strong>AI</strong></span>
+      </a>
+
+      <div class="auth-brand-content">
+        <h1>Join Edu-Link AI 🚀</h1>
+        <p>Create your account and start your journey from learning to employability.</p>
+
+        <div class="auth-brand-features">
+          <div class="auth-brand-feature">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>AI-powered skill assessment</span>
+          </div>
+          <div class="auth-brand-feature">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Personalized learning paths</span>
+          </div>
+          <div class="auth-brand-feature">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Explainable internship matching</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-brand-footer">
+        <p>© 2025 Edu-Link AI · SIH26044</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Signup Form -->
+    <div class="auth-form-wrapper">
+      <div class="auth-form-box">
+
+        <div class="auth-form-header">
+          <h2>Create Account</h2>
+          <p>Choose your role and fill in the details</p>
+        </div>
+
+        <div id="alertBox" class="alert hidden"></div>
+
+        <!-- ROLE SELECTOR -->
+        <div class="role-selector" id="roleSelector">
+          <button type="button" class="role-option active" data-role="student">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Student</span>
+          </button>
+          <button type="button" class="role-option" data-role="college">
+            <i class="fa-solid fa-building"></i>
+            <span>College</span>
+          </button>
+          <button type="button" class="role-option" data-role="company">
+            <i class="fa-solid fa-industry"></i>
+            <span>Company</span>
+          </button>
+        </div>
+
+        <form id="signupForm" novalidate>
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input
+                type="text"
+                id="name"
+                class="form-control input-with-icon"
+                placeholder="Enter your full name"
+                required
+                autocomplete="name"
+              >
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                class="form-control input-with-icon"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+          </div>
+
+          <!-- Role-Specific Field -->
+          <div class="form-group" id="roleSpecificField">
+            <label class="form-label" for="collegeName">College Name</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-building-columns"></i>
+              <input
+                type="text"
+                id="collegeName"
+                name="collegeName"
+                class="form-control input-with-icon"
+                placeholder="Enter your college name"
+              >
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                class="form-control input-with-icon"
+                placeholder="Min. 6 characters"
+                required
+                minlength="6"
+                autocomplete="new-password"
+              >
+              <button type="button" class="input-toggle-password" id="togglePassword">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="form-hint">Password must be at least 6 characters</div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label class="form-label" for="confirmPassword">Confirm Password</label>
+            <div class="input-icon-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="confirmPassword"
+                class="form-control input-with-icon"
+                placeholder="Re-enter password"
+                required
+                autocomplete="new-password"
+              >
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" id="terms" required>
+              <span>I agree to the Terms & Privacy Policy</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="signupBtn">
+            <i class="fa-solid fa-user-plus"></i>
+            Create Account
+          </button>
+
+        </form>
+
+        <div class="auth-form-footer">
+          <p>Already have an account? <a href="login.html">Sign in</a></p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../shared/js/config.js"></script>
+  <script src="../shared/js/api.js"></script>
+  <script src="../shared/js/auth.js"></script>
+  <script src="../shared/js/guard.js"></script>
+  <script src="signup.js"></script>
+</body>
+</html>

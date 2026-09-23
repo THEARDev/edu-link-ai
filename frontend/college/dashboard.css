@@ -1,0 +1,69 @@
+/* ---------- TOP SKILLS ---------- */
+.top-skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.top-skill-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 120px;
+  gap: var(--sp-md);
+  align-items: center;
+}
+
+.top-skill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.top-skill-bar-wrapper {
+  height: 8px;
+  background: var(--bg-tertiary);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.top-skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: var(--r-full);
+  transition: width 0.6s ease;
+}
+
+.top-skill-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.readiness-mini {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  min-width: 100px;
+}
+
+.readiness-mini .progress {
+  flex: 1;
+  height: 6px;
+}
+
+.readiness-mini span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 32px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .top-skill-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .top-skill-count {
+    text-align: left;
+  }
+}

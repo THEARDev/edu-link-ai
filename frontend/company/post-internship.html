@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Internship — Edu-Link AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/components.css">
+  <link rel="stylesheet" href="post-internship.css">
+</head>
+<body>
+
+  <div class="app-layout" id="app-layout">
+    <div class="main-content">
+      <div class="page-content">
+
+        <div class="page-header">
+          <h1>Post New Internship</h1>
+          <p>Create a new internship opportunity for students</p>
+        </div>
+
+        <div id="alertBox" class="alert hidden"></div>
+
+        <form id="postInternshipForm">
+          <div class="card mb-lg">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Basic Information</div>
+                <div class="card-subtitle">Position details</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Internship Title *</label>
+              <input type="text" id="title" class="form-control" placeholder="e.g. Full Stack Developer Intern" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Description *</label>
+              <textarea id="description" class="form-control" rows="4" placeholder="Describe the role, responsibilities, and what the intern will learn..." required></textarea>
+            </div>
+
+            <div class="grid grid-2">
+              <div class="form-group">
+                <label class="form-label">Location *</label>
+                <select id="location" class="form-control" required>
+                  <option value="">Select location</option>
+                  <option value="Remote">Remote</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Pune">Pune</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Role Type *</label>
+                <select id="type" class="form-control" required>
+                  <option value="">Select role type</option>
+                  <option value="fullstack">Full Stack</option>
+                  <option value="frontend">Frontend</option>
+                  <option value="backend">Backend</option>
+                  <option value="datascientist">Data Science</option>
+                  <option value="ml">Machine Learning</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-3">
+              <div class="form-group">
+                <label class="form-label">Duration *</label>
+                <select id="duration" class="form-control" required>
+                  <option value="">Select</option>
+                  <option value="1 month">1 month</option>
+                  <option value="2 months">2 months</option>
+                  <option value="3 months">3 months</option>
+                  <option value="4 months">4 months</option>
+                  <option value="6 months">6 months</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Stipend (₹/month) *</label>
+                <input type="number" id="stipend" class="form-control" placeholder="e.g. 25000" min="0" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Openings</label>
+                <input type="number" id="openings" class="form-control" placeholder="e.g. 5" min="1" value="1">
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-lg">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Required Skills</div>
+                <div class="card-subtitle">Add skills students need to have</div>
+              </div>
+            </div>
+
+            <div class="add-skill-row">
+              <input type="text" id="skillInput" class="form-control" placeholder="Type a skill (e.g. Python, React)" autocomplete="off">
+              <button type="button" class="btn btn-primary" onclick="addSkill()">
+                <i class="fa-solid fa-plus"></i>
+                Add
+              </button>
+            </div>
+
+            <div class="suggested-skills mt-md">
+              <div class="suggested-label">Quick add:</div>
+              <div class="suggested-list">
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('JavaScript')">JavaScript</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('Python')">Python</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('React')">React</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('Node.js')">Node.js</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('SQL')">SQL</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('MongoDB')">MongoDB</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('Docker')">Docker</button>
+                <button type="button" class="suggestion-chip" onclick="quickAddSkill('AWS')">AWS</button>
+              </div>
+            </div>
+
+            <div class="added-skills mt-md" id="addedSkills">
+              <div class="empty-skills" id="emptySkills">
+                <i class="fa-solid fa-lightbulb"></i>
+                <p>No skills added yet. Add skills to help match better candidates.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+              <i class="fa-solid fa-paper-plane"></i>
+              Post Internship
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/js/config.js"></script>
+  <script src="../shared/js/api.js"></script>
+  <script src="../shared/js/auth.js"></script>
+  <script src="../shared/js/guard.js"></script>
+  <script src="../shared/js/layout.js"></script>
+  <script src="post-internship.js"></script>
+</body>
+</html>

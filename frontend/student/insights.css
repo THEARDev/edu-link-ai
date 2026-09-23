@@ -1,0 +1,205 @@
+/* ============================================
+   EDU-LINK AI — CAREER INSIGHTS
+   ============================================ */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-lg);
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: transparent;
+  border: none;
+  border-radius: var(--r-sm);
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.tab-btn:hover { color: var(--text-primary); }
+.tab-btn.active { background: var(--accent); color: white; }
+
+.tab-panel { display: none; animation: fadeIn 0.3s ease; }
+.tab-panel.active { display: block; }
+
+.role-selector-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-lg);
+  flex-wrap: wrap;
+}
+
+.role-select { max-width: 280px; }
+
+.skills-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 60px;
+}
+
+/* ---------- CAREERS ---------- */
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-lg);
+}
+
+.career-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-lg);
+  transition: all var(--t);
+}
+
+.career-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.career-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--sp-md);
+}
+
+.career-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.career-match-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.career-match-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.career-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.career-card > p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: var(--sp-md); }
+
+.career-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------- READINESS ---------- */
+.readiness-main-card {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    var(--bg-secondary);
+}
+
+.readiness-main {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-xl);
+  flex-wrap: wrap;
+}
+
+.readiness-ring-big {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) var(--score, 0%), var(--bg-tertiary) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.readiness-ring-big::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+}
+
+.readiness-ring-big span {
+  position: relative;
+  z-index: 1;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-light);
+}
+
+.readiness-main-info { flex: 1; min-width: 280px; }
+
+.readiness-main-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.readiness-main-info > p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: var(--sp-lg);
+}
+
+.readiness-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+}
+
+.breakdown-item {
+  padding: var(--sp-md);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.breakdown-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.breakdown-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+  .careers-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .tab-btn span { display: none; }
+  .role-selector-row { flex-direction: column; align-items: flex-start; }
+  .role-select { max-width: 100%; width: 100%; }
+  .readiness-main { flex-direction: column; text-align: center; }
+  .readiness-breakdown { grid-template-columns: 1fr; }
+}

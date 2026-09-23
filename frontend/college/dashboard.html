@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Dashboard — Edu-Link AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/components.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout" id="app-layout">
+    <div class="main-content">
+      <div class="page-content">
+
+        <div class="welcome-banner fade-in">
+          <div class="welcome-text">
+            <h1 id="welcomeTitle">Welcome, College Admin! 🏛️</h1>
+            <p>Track student skills and placement readiness.</p>
+          </div>
+        </div>
+
+        <div id="alertBox" class="alert hidden"></div>
+
+        <!-- Stats -->
+        <div class="grid grid-4 mt-xl">
+          <div class="stat-card">
+            <div class="stat-card-icon blue"><i class="fa-solid fa-user-graduate"></i></div>
+            <div class="stat-card-value" id="statTotalStudents">0</div>
+            <div class="stat-card-label">Total Students</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon green"><i class="fa-solid fa-trophy"></i></div>
+            <div class="stat-card-value text-success" id="statPlaced">0</div>
+            <div class="stat-card-label">Applied / Interned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon amber"><i class="fa-solid fa-gauge-high"></i></div>
+            <div class="stat-card-value" id="statAvgReadiness">0%</div>
+            <div class="stat-card-label">Avg Readiness</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon cyan"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="stat-card-value" id="statActiveInternships">0</div>
+            <div class="stat-card-label">Active Internships</div>
+          </div>
+        </div>
+
+        <!-- Top Skills -->
+        <div class="card mt-xl">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-fire" style="color: var(--warning); margin-right: 6px;"></i>
+                Top Skills in Your College
+              </div>
+              <div class="card-subtitle">Most common skills across students</div>
+            </div>
+          </div>
+
+          <div class="top-skills" id="topSkills">
+            <div class="empty-state" style="padding: 24px;">
+              <p>No skills data yet. Students need to add skills.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Students Table -->
+        <div class="card mt-xl">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-users" style="color: var(--accent-light); margin-right: 6px;"></i>
+                Students
+              </div>
+              <div class="card-subtitle" id="studentsCount">0 students</div>
+            </div>
+            <input type="text" id="searchStudents" class="form-control filter-small" placeholder="Search by name...">
+          </div>
+
+          <div class="table-wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Branch</th>
+                  <th>Year</th>
+                  <th>Skills</th>
+                  <th>Readiness</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="studentsTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="empty-state hidden" id="studentsEmpty">
+            <i class="fa-solid fa-users-slash"></i>
+            <h3>No students found</h3>
+            <p>Students will appear here after they register.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/js/config.js"></script>
+  <script src="../shared/js/api.js"></script>
+  <script src="../shared/js/auth.js"></script>
+  <script src="../shared/js/guard.js"></script>
+  <script src="../shared/js/layout.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

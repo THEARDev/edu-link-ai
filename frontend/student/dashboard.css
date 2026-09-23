@@ -1,0 +1,95 @@
+/* ============================================
+   EDU-LINK AI — STUDENT DASHBOARD
+   ============================================ */
+
+.welcome-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-lg);
+  padding: var(--sp-xl);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.welcome-text h1 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.welcome-text p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.welcome-actions {
+  flex-shrink: 0;
+}
+
+.skills-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.action-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  text-decoration: none;
+  color: inherit;
+  padding: var(--sp-md) var(--sp-lg);
+}
+
+.action-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.action-content {
+  flex: 1;
+}
+
+.action-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.action-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.action-arrow {
+  color: var(--text-dim);
+  transition: all var(--t-fast);
+}
+
+.action-card:hover .action-arrow {
+  color: var(--accent-light);
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .welcome-text h1 {
+    font-size: 1.3rem;
+  }
+}

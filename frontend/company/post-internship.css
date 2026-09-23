@@ -1,0 +1,140 @@
+/* ============================================
+   EDU-LINK AI — POST INTERNSHIP
+   ============================================ */
+
+.add-skill-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: var(--sp-sm);
+}
+
+.suggested-skills {
+  padding: var(--sp-md);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.suggested-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-sm);
+  text-transform: uppercase;
+}
+
+.suggested-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suggestion-chip {
+  padding: 4px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.suggestion-chip:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.added-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 60px;
+}
+
+.empty-skills {
+  width: 100%;
+  text-align: center;
+  padding: var(--sp-lg);
+  color: var(--text-muted);
+}
+
+.empty-skills i {
+  font-size: 1.8rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.empty-skills p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.added-skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 14px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: var(--r-full);
+  font-size: 0.85rem;
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+.skill-remove-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.skill-remove-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-md);
+  padding: var(--sp-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .add-skill-row { grid-template-columns: 1fr; }
+  .form-actions { flex-direction: column; }
+  .form-actions .btn { width: 100%; justify-content: center; }
+}

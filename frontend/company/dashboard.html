@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Dashboard — Edu-Link AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/components.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout" id="app-layout">
+    <div class="main-content">
+      <div class="page-content">
+
+        <div class="welcome-banner fade-in">
+          <div class="welcome-text">
+            <h1 id="welcomeTitle">Welcome, Company! 🏢</h1>
+            <p>Find the best skill-matched talent for your internships.</p>
+          </div>
+          <div class="welcome-actions">
+            <a href="post-internship.html" class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+              Post New Internship
+            </a>
+          </div>
+        </div>
+
+        <div id="alertBox" class="alert hidden"></div>
+
+        <div class="grid grid-4 mt-xl">
+          <div class="stat-card">
+            <div class="stat-card-icon blue"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="stat-card-value" id="statInternships">0</div>
+            <div class="stat-card-label">Active Internships</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon cyan"><i class="fa-solid fa-paper-plane"></i></div>
+            <div class="stat-card-value" id="statApplications">0</div>
+            <div class="stat-card-label">Total Applications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon amber"><i class="fa-solid fa-star"></i></div>
+            <div class="stat-card-value" id="statShortlisted">0</div>
+            <div class="stat-card-label">Shortlisted</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon green"><i class="fa-solid fa-trophy"></i></div>
+            <div class="stat-card-value" id="statHired">0</div>
+            <div class="stat-card-label">Hired</div>
+          </div>
+        </div>
+
+        <!-- Candidates -->
+        <div class="card mt-xl">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-user-check" style="color: var(--success); margin-right: 6px;"></i>
+                Candidates
+              </div>
+              <div class="card-subtitle" id="candidatesCount">0 candidates</div>
+            </div>
+            <input type="text" id="searchCandidates" class="form-control filter-small" placeholder="Search candidates...">
+          </div>
+
+          <div class="candidates-list" id="candidatesList"></div>
+
+          <div class="empty-state hidden" id="candidatesEmpty">
+            <i class="fa-solid fa-user-slash"></i>
+            <h3>No candidates found</h3>
+            <p>Students will appear here after they register.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/js/config.js"></script>
+  <script src="../shared/js/api.js"></script>
+  <script src="../shared/js/auth.js"></script>
+  <script src="../shared/js/guard.js"></script>
+  <script src="../shared/js/layout.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

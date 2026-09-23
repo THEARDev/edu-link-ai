@@ -1,0 +1,280 @@
+/* ============================================
+   EDU-LINK AI — INTERNSHIPS
+   ============================================ */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-lg);
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: transparent;
+  border: none;
+  border-radius: var(--r-sm);
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.tab-btn:hover { color: var(--text-primary); }
+.tab-btn.active { background: var(--accent); color: white; }
+
+.tab-panel { display: none; animation: fadeIn 0.3s ease; }
+.tab-panel.active { display: block; }
+
+.results-header {
+  margin-bottom: var(--sp-md);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.internships-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-lg);
+}
+
+/* ---------- INTERNSHIP CARD ---------- */
+.internship-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-lg);
+  transition: all var(--t);
+}
+
+.internship-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.internship-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-md);
+}
+
+.internship-info {
+  display: flex;
+  gap: var(--sp-md);
+  flex: 1;
+}
+
+.company-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.internship-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.internship-company {
+  font-size: 0.9rem;
+  color: var(--accent-light);
+  margin-bottom: 8px;
+}
+
+.internship-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-md);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.internship-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.match-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) var(--score, 0%), var(--bg-tertiary) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.match-circle.high { background: conic-gradient(var(--success) var(--score, 0%), var(--bg-tertiary) 0); }
+.match-circle.medium { background: conic-gradient(var(--warning) var(--score, 0%), var(--bg-tertiary) 0); }
+.match-circle.low { background: conic-gradient(var(--danger) var(--score, 0%), var(--bg-tertiary) 0); }
+
+.match-circle::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+}
+
+.match-circle span {
+  position: relative;
+  z-index: 1;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.match-label {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.internship-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--sp-md);
+  padding-bottom: var(--sp-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.internship-footer {
+  display: flex;
+  gap: var(--sp-sm);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* ---------- EXPLANATION MODAL ---------- */
+.explanation-score {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+  padding: var(--sp-lg);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-lg);
+}
+
+.explanation-score .match-circle {
+  width: 90px;
+  height: 90px;
+}
+
+.explanation-section {
+  margin-bottom: var(--sp-lg);
+}
+
+.explanation-section h4 {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-sm);
+}
+
+.explanation-reasons {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.explanation-reasons li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  padding: 10px 12px;
+  background: var(--bg-primary);
+  border-radius: var(--r-sm);
+  border-left: 3px solid var(--border);
+}
+
+.explanation-reasons li.positive { border-left-color: var(--success); }
+.explanation-reasons li.negative { border-left-color: var(--danger); }
+
+.explanation-reasons li i {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.explanation-reasons li.positive i { color: var(--success); }
+.explanation-reasons li.negative i { color: var(--danger); }
+
+/* ---------- APPLICATIONS LIST ---------- */
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.application-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  padding: var(--sp-md) var(--sp-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.application-company-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.application-info { flex: 1; }
+
+.application-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.application-company {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .tab-btn span { display: none; }
+  .internship-header { flex-direction: column; }
+  .internship-footer { flex-direction: column; }
+  .internship-footer .btn { width: 100%; }
+}

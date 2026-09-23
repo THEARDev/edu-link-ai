@@ -1,0 +1,46 @@
+/* ---------- CANDIDATE MATCH ---------- */
+.candidate-match {
+  text-align: center;
+  flex-shrink: 0;
+  min-width: 70px;
+}
+
+.candidate-match-score {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.candidate-match-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.candidate-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.candidate-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.candidate-actions .btn {
+  padding: 6px 10px;
+}
+
+@media (max-width: 768px) {
+  .candidate-item {
+    flex-wrap: wrap;
+  }
+  .candidate-status {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
